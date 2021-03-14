@@ -15,7 +15,9 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('students')->truncate();
         Student::factory(10)->create();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

@@ -15,7 +15,9 @@ class SubjectSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('subjects')->truncate();
-        Subject::factory(2)->create();
+        Subject::factory(4)->create();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
